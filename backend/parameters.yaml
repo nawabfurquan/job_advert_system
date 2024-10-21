@@ -1,0 +1,179 @@
+parameters:
+  UserInfo:
+    type: object
+    properties:
+      email:
+        type: string
+      name:
+        type: string
+      phone:
+        type: integer
+      resume:
+        type: object
+        properties:
+          applicationFileId:
+            type: string
+          name:
+            type: string
+      coverLetter:
+        type: object
+        properties:
+          applicationFileId:
+            type: string
+          name:
+            type: string
+      location:
+        type: string
+      required:
+        - email
+        - name
+        - phone
+  Application:
+    type: object
+    properties:
+      applicationId:
+        type: string
+      jobId:
+        type: string
+      userId:
+        type: string
+      userInfo:
+        $ref: "#/parameters/UserInfo"
+      status:
+        type: string
+      date:
+        type: string
+      lastUpdated:
+        type: string
+
+  Preferences:
+    type: object
+    properties:
+      jobType:
+        type: array
+        items:
+          type: string
+      location:
+        type: array
+        items:
+          type: string
+      industry:
+        type: array
+        items:
+          type: string
+      salary:
+        type: number
+  User:
+    type: object
+    properties:
+      userId:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      password:
+        type: string
+      phone:
+        type: number
+      isAdmin:
+        type: boolean
+      isEmployer:
+        type: boolean
+      location:
+        type: string
+      preferences:
+        $ref: "#/parameters/Preferences"
+      skills:
+        type: array
+        items:
+          type: string
+      experience:
+        type: number
+      resume:
+        type: object
+        properties:
+          userFileId:
+            type: string
+          name:
+            type: string
+      lastUpdated:
+        type: string
+      resetToken:
+        type: string
+      resetTokenExpiry:
+        type: string
+      interactions:
+        type: array
+        items:
+          type: string
+
+  Job:
+    type: object
+    properties:
+      jobId:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      requirements:
+        type: array
+        items:
+          type: string
+      responsibilities:
+        type: array
+        items:
+          type: string
+      skills:
+        type: array
+        items:
+          type: string
+      jobType:
+        type: string
+      salary:
+        type: number
+      industry:
+        type: string
+      company:
+        type: string
+      location:
+        type: string
+      postedDate:
+        type: string
+      userId:
+        type: string
+      deadline:
+        type: string
+      lastUpdated:
+        type: string
+
+  ApplicationFile:
+    type: object
+    properties:
+      applicationFileId:
+        type: string
+      data:
+        type: string
+      fileType:
+        type: string
+      name:
+        type: string
+      userId:
+        type: string
+      applicationId:
+        type: string
+
+  UserFile:
+    type: object
+    properties:
+      userFileId:
+        type: string
+      data:
+        type: string
+      fileType:
+        type: string
+      name:
+        type: string
+      userId:
+        type: string
